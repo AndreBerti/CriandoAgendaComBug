@@ -36,7 +36,12 @@ public class ProgramBusca {
 				case "NOME":
 					System.out.printf("\nNome:");
 					nome = teclado.nextLine();
-					pessoas.removeIf(x -> nome.equals(x.getNome()));
+					for (People x : pessoas) {
+						if (nome.equals(x.getNome())) {
+							aux = x;
+							pessoas.remove(aux);
+						}
+					}
 					break;
 				case "INICIAL":
 					System.out.printf("\nInicial:");
@@ -61,24 +66,27 @@ public class ProgramBusca {
 				case "NOME":
 					System.out.printf("Nome:");
 					String buscaNome = teclado.nextLine();
-					for (People x: pessoas){
-						if(x.getNome().equals(buscaNome)) System.out.println("______________\n"+x.toString()+"\n");
+					for (People x : pessoas) {
+						if (x.getNome().equals(buscaNome))
+							System.out.println("______________\n" + x.toString() + "\n");
 					}
 					break;
 				case "CPF":
 					System.out.printf("CPF:");
 					String buscaCPF = teclado.nextLine();
-					for (People x: pessoas){
-						if(x.getCpf().equals(buscaCPF)) System.out.println("______________\n"+x.toString()+"\n");
+					for (People x : pessoas) {
+						if (x.getCpf().equals(buscaCPF))
+							System.out.println("______________\n" + x.toString() + "\n");
 					}
 					break;
 				case "POSIÇÃO":
 					System.out.printf("Posição:");
 					int buscaPosicao = teclado.nextInt();
-					for(int i=0;i<pessoas.size() || i==buscaPosicao;i++){
-						if(i==buscaPosicao) System.out.println("______________\n"+pessoas.toString()+"\n");
+					for (int i = 0; i < pessoas.size() || i == buscaPosicao; i++) {
+						if (i == buscaPosicao)
+							System.out.println("______________\n" + pessoas.toString() + "\n");
 					}
-					
+
 					break;
 				}
 				break;
